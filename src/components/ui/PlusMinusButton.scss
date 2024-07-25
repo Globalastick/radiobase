@@ -1,0 +1,46 @@
+@import 'src/styles';
+
+.plus-minus-button {
+	position: relative;
+	min-height: calc(var(--station-image-width) + var(--station-card-padding) * 2);
+	height: 100%;
+	color: var(--color-card-bg-alt);
+	background-color: transparent;
+	border: 2px solid var(--color-card-bg-alt);
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	user-select: none;
+	transition-duration: 0.2s;
+
+	@include mobile {
+		--station-image-width: 32px;
+		--station-card-padding: 4px;
+	}
+
+	@include hover {
+		color: var(--color-text-accent);
+		background-color: var(--color-bg-accent);
+		border: 2px solid transparent;
+		opacity: 1;
+	}
+
+	&.plus,
+	&.minus {
+		&::before,
+		&::after {
+			@include abs-center;
+
+			content: '';
+			width: var(--burger-line-width);
+			height: var(--burger-line-height);
+			background-color: currentcolor;
+			border-radius: 10px;
+		}
+	}
+
+	&.plus {
+		&::after {
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
+	}
+}

@@ -1,0 +1,83 @@
+@import 'src/styles';
+
+.settings {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--border-radius);
+	width: clamp(250px, 80vw, 600px);
+
+	&__label {
+		margin-bottom: 6px;
+		font-size: 16px;
+	}
+
+	&__group {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: 100%;
+		padding: var(--station-card-padding);
+		border-radius: var(--border-radius-small);
+	}
+
+	&__reset-buttons-group {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		align-self: center;
+
+		@include mobile-s {
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+		}
+	}
+}
+
+.hotkey {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 24px;
+	cursor: default;
+
+	@include mobile-s {
+		grid-template-columns: 1fr;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		padding: 8px;
+		border-radius: var(--border-radius-small);
+	}
+
+	&__keys-group {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		@include mobile-s {
+			justify-content: center;
+		}
+	}
+
+	&__key {
+		padding: 2px 12px;
+		background-color: var(--color-card-bg);
+		border-radius: var(--border-radius-small);
+
+		@include mobile-s {
+			text-align: center;
+		}
+	}
+
+	&__description {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+
+		@include mobile-s {
+			justify-content: center;
+		}
+	}
+}

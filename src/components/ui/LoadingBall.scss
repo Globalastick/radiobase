@@ -1,0 +1,11 @@
+@import 'src/styles/animations';
+
+.loading-ball {
+	width: 24px;
+	aspect-ratio: 1;
+	background-color: var(--color-card-bg-alt);
+	border-radius: 50%;
+	animation-name: loading-ball;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}

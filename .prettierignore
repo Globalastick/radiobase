@@ -1,0 +1,5 @@
+dist
+.github
+_metadata
+*.html
+src/styles/_animations.scss

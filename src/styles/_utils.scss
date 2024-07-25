@@ -1,0 +1,28 @@
+@import 'media';
+@import 'mixins';
+
+.container {
+	max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+	margin-inline: auto;
+	padding-inline: var(--container-padding-x);
+
+	@include mobile {
+		padding-inline: calc(var(--container-padding-x) / 2);
+	}
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+.hidden-mobile {
+	@include mobile {
+		display: none !important;
+	}
+}
+
+.visible-mobile {
+	@include mobile-above {
+		display: none !important;
+	}
+}

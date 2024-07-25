@@ -1,0 +1,39 @@
+@import 'src/styles';
+
+.checkbox {
+	display: flex;
+	align-items: center;
+	gap: var(--station-card-padding);
+
+	&__emulator {
+		position: relative;
+		flex-shrink: 0;
+		width: 36px;
+		height: 20px;
+		background-color: var(--color-card-bg-alt);
+		border-radius: 16px;
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 16px;
+			aspect-ratio: 1;
+			background-color: var(--color-text);
+			border-radius: 50%;
+			transition-duration: var(--transition-duration);
+			transform: translate(-90%, -50%);
+		}
+	}
+
+	&__input:checked + &__emulator {
+		background-color: var(--color-bg-accent);
+
+		&::after {
+			background-color: var(--color-text-accent);
+			transform: translate(-10%, -50%);
+		}
+	}
+}

@@ -1,0 +1,56 @@
+@import 'src/styles';
+
+.button {
+	@include flex-center(true);
+
+	min-height: var(--input-height);
+	padding: 0.3em 0.8em;
+	color: var(--color-text);
+	background-color: var(--color-card-bg-alt);
+	border: none;
+	border-radius: var(--border-radius-small);
+	cursor: pointer;
+
+	@include hover {
+		color: var(--color-text-accent);
+		background-color: var(--color-bg-accent);
+	}
+
+	&--success {
+		color: whitesmoke;
+		background-color: var(--color-bg-success);
+
+		@include hover {
+			color: whitesmoke;
+			background-color: var(--color-bg-success);
+			opacity: 0.9;
+		}
+	}
+
+	&--danger {
+		color: whitesmoke;
+		background-color: var(--color-bg-danger);
+
+		@include hover {
+			color: whitesmoke;
+			background-color: var(--color-bg-danger);
+			opacity: 0.9;
+		}
+	}
+
+	&--accent {
+		color: var(--color-text-accent);
+		background-color: var(--color-bg-accent);
+
+		@include hover {
+			color: var(--color-text-accent);
+			background-color: var(--color-bg-accent);
+			opacity: 0.9;
+		}
+	}
+
+	&--text {
+		color: var(--color-text);
+		background-color: transparent;
+	}
+}

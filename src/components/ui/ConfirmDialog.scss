@@ -1,0 +1,24 @@
+@import 'src/styles';
+
+.confirm-dialog {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: clamp(260px, 80vw, 400px);
+	padding: 0.5rem;
+
+	@include mobile-s {
+		padding: 0;
+	}
+
+	&__text {
+		margin-bottom: 0.5rem;
+	}
+
+	&__buttons {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		width: 100%;
+	}
+}

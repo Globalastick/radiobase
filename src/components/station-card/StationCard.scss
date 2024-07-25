@@ -1,0 +1,64 @@
+@import 'src/styles';
+
+.station-card {
+	--detailsBtnOpacity: 0;
+
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: var(--station-card-padding);
+	background-color: var(--color-card-bg);
+	border-radius: var(--border-radius);
+	text-align: center;
+	cursor: pointer;
+	transition-duration: var(--transition-duration);
+
+	@include mobile {
+		--station-image-width: 32px;
+		--station-card-padding: 4px;
+	}
+
+	&:hover {
+		--detailsBtnOpacity: 1;
+
+		background-color: var(--color-card-bg-alt);
+	}
+
+	&.loading {
+		animation: loading 1s infinite;
+	}
+
+	&.playing,
+	&.loading {
+		color: var(--color-text-accent);
+		background-color: var(--color-bg-accent);
+
+		&:hover {
+			color: var(--color-text-accent);
+			background-color: var(--color-bg-accent-alt);
+		}
+	}
+
+	&.pause {
+		color: var(--color-transparent-25);
+		background-color: var(--color-transparent-25);
+
+		&:hover {
+			color: var(--color-transparent-30);
+			background-color: var(--color-transparent-30);
+		}
+	}
+
+	&.error {
+		color: var(--color-text-error);
+		background-color: var(--color-bg-error);
+		animation: horizontal-shaking 1s;
+
+		&:hover {
+			color: var(--color-text-error);
+			background-color: var(--color-bg-error-alt);
+		}
+	}
+}

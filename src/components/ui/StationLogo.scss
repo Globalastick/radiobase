@@ -1,0 +1,53 @@
+.station-logo {
+	--stationImageWidth: var(--station-image-width);
+	--stationImageRadius: 50%;
+
+	position: relative;
+	height: var(--stationImageWidth);
+	aspect-ratio: 1;
+
+	&--small {
+		--stationImageWidth: calc(var(--station-image-width) / 2);
+	}
+
+	&--large {
+		--stationImageWidth: calc(var(--station-image-width) * 4);
+		--stationImageRadius: var(--border-radius);
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: var(--stationImageWidth);
+		height: var(--stationImageWidth);
+		border-radius: var(--stationImageRadius);
+	}
+
+	&__pause-icon {
+		width: var(--stationImageWidth);
+		aspect-ratio: 1;
+		background-color: var(--color-transparent-25);
+		border-radius: var(--stationImageRadius);
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: calc(var(--stationImageWidth) / 12);
+			height: calc(var(--stationImageWidth) / 2);
+			background-color: var(--color-transparent-25);
+			box-shadow:
+				0 0,
+				calc(var(--stationImageWidth) * 0.2) 0 var(--color-transparent-25);
+			border-radius: 10px;
+			transform: translate(-175%, -50%);
+		}
+	}
+}

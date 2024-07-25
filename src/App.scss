@@ -1,0 +1,19 @@
+@import 'src/styles';
+
+.app {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1rem;
+	min-height: 100vh;
+	transition-duration: var(--transition-duration);
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+	margin-bottom: 80px;
+}

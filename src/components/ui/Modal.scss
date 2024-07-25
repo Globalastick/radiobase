@@ -1,0 +1,83 @@
+@import 'src/styles';
+
+.modal {
+	&__background {
+		position: fixed;
+		inset: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin: auto;
+		background-color: rgb(0 0 0 / 50%);
+		cursor: pointer;
+		animation: appearing 0.1s;
+	}
+
+	&__button-close {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		width: var(--burger-line-width);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		cursor: pointer;
+		transition-duration: var(--transition-duration);
+
+		@include hover {
+			opacity: 0.7;
+		}
+
+		&::before,
+		&::after {
+			@include abs-center;
+
+			content: '';
+			width: var(--burger-line-width);
+			height: var(--burger-line-height);
+			background-color: currentcolor;
+			border-radius: 10px;
+		}
+
+		&::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		&::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+
+	&__inner {
+		position: relative;
+		overflow-y: auto;
+		min-width: 30px;
+		max-width: 1000px;
+		min-height: 20px;
+		max-height: calc(100vh - var(--station-image-width) * 2);
+		margin: 10px;
+		padding: var(--border-radius);
+		background-color: var(--color-bg);
+		box-shadow: var(--shadow);
+		border: 1px solid rgb(255 255 255 / 5%);
+		border-radius: var(--border-radius);
+		cursor: auto;
+
+		&::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			border-radius: 6px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: rgb(0 0 0 / 20%);
+			border-radius: 6px;
+		}
+
+		&::-webkit-scrollbar-thumb:hover {
+			background: var(--color-text);
+		}
+	}
+}
