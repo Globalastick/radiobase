@@ -61,4 +61,9 @@
 			background-color: var(--color-bg-error-alt);
 		}
 	}
+
+	&.dragging {
+		cursor: grabbing;
+		transition-duration: 0s;
+	}
 }

@@ -25,7 +25,9 @@ export const Header = () => {
 					<li
 						className="header__menu-item"
 						title="Github">
-						<Link to={'/github'}>
+						<Link
+							to={'https://github.com/Globalastick/radiobase'}
+							target="_blank">
 							<GithubIconSvg />
 						</Link>
 					</li>

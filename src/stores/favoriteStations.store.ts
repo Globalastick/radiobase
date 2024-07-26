@@ -8,6 +8,7 @@ interface IFavoriteStationsState {
 	favoriteStations: IStation[]
 	appendStation: (station: IStation) => void
 	removeStation: (station: IStation) => void
+	setFavoriteStations: (stations: IStation[]) => void
 	resetFavoriteStations: () => void
 }
 
@@ -37,6 +38,7 @@ export const useFavoriteStationsStore = create<IFavoriteStationsState>()(
 					),
 				}))
 			},
+			setFavoriteStations: (stations) => set({ favoriteStations: stations }),
 			resetFavoriteStations: async () => {
 				const initialFavoriteStations = await getInitialFavoriteStations()
 				set({ favoriteStations: initialFavoriteStations, isInitialized: true })

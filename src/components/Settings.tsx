@@ -101,6 +101,10 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 							<span className="hotkey__description">Play/Pause</span>
 						</div>
 					</div>
+					<div className="settings__group">
+						<h3 className="settings__label">Drag-and-drop</h3>
+						<div>Sort your favorite stations by drag and drop.</div>
+					</div>
 				</div>
 			</Modal>
 			<ConfirmDialog />
