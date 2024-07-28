@@ -666,6 +666,11 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.1.1.tgz#1ec17e2edbec25c8306d424ecfbf13c7de1aaa31"
   integrity sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==
 
+"@radiolise/metadata-client@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@radiolise/metadata-client/-/metadata-client-1.0.1.tgz#a16444825eb7df155f7f8017f318a9253b4360c2"
+  integrity sha512-3beIyK94nT0IlUMndAX2X7JaEe9seTCaEtFDMTQrwaJx6G0jXuleudp69T6AK4MYBXBSmjxX9UyM3u8fllQRNg==
+
 "@remix-run/router@1.18.0":
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.18.0.tgz#20b033d1f542a100c1d57cfd18ecf442d1784732"

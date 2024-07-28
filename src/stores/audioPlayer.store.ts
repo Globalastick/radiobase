@@ -8,9 +8,11 @@ interface IAudioPlayerState {
 	audio: HTMLAudioElement
 	audioPlayerState: PlayerStateType
 	volume: number
+	trackTitle: string
 	currentStation: IStation | null
 	attempsToChangeSrc: number
 	setVolume: (volume: number) => void
+	setTrackTitle: (newTitle: string) => void
 	unloadSourceUrl: () => void
 	pause: () => void
 	play: () => void
@@ -24,6 +26,7 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 			audio: new Audio(),
 			audioPlayerState: 'pause',
 			volume: 42,
+			trackTitle: 'Track title',
 			currentStation: null,
 			attempsToChangeSrc: 0,
 			setVolume: (volume) => {
@@ -31,6 +34,7 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 				set(() => ({ volume: protectedVolume }))
 				get().audio.volume = protectedVolume / 100
 			},
+			setTrackTitle: (newTitle) => set({ trackTitle: newTitle }),
 			unloadSourceUrl: () => {
 				get().audio.src = ''
 				get().audio.load()
@@ -77,7 +81,7 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 				if (newStationInfo.stationuuid === get().currentStation?.stationuuid) {
 					get().togglePlayState()
 				} else {
-					set({ currentStation: newStationInfo })
+					set({ currentStation: newStationInfo, trackTitle: '' })
 					get().play()
 				}
 			},

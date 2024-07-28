@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { useTrackTitle } from 'src/hooks/useTrackTitle'
 import { useAudioPlayerStore } from 'src/stores/audioPlayer.store'
 import { useSettingsStore } from 'src/stores/settings.store'
 import './AudioPlayer.scss'
@@ -39,6 +40,8 @@ export const AudioPlayer = () => {
 	useEffect(() => {
 		isAutoplay && play()
 	}, [])
+
+	useTrackTitle()
 
 	return (
 		<div className="audio-player">

@@ -23,6 +23,8 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 	)
 	const theme = useSettingsStore((state) => state.theme)
 	const toggleTheme = useSettingsStore((state) => state.toggleTheme)
+	const isShowTrackTitle = useSettingsStore((state) => state.isShowTrackTitle)
+	const toggleIsShowTrackTitle = useSettingsStore((state) => state.toggleIsShowTrackTitle)
 	const openConfirmDialog = useConfirmStore((state) => state.open)
 
 	return (
@@ -42,6 +44,13 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 							label="Autoplay last selected station"
 							isChecked={isAutoplayLastLelectedStaion}
 							onChange={toggleIsAutoplayLastSelectedStaion}
+						/>
+						<CheckBox
+							label="Show track title (may not work for some stations)"
+							isChecked={isShowTrackTitle}
+							onChange={() => {
+								toggleIsShowTrackTitle()
+							}}
 						/>
 						<CheckBox
 							label="Dark theme"

@@ -17,6 +17,7 @@ export const StationCard = forwardRef<HTMLDivElement, Props>(
 			(state) => state.updateCurrentStationState,
 		)
 		const currentStation = useAudioPlayerStore((state) => state.currentStation)
+		const trackTitle = useAudioPlayerStore((state) => state.trackTitle)
 		const isStationSelected = station.stationuuid === currentStation?.stationuuid
 		const isPause = isStationSelected && audioPlayerState == 'pause'
 
@@ -35,7 +36,12 @@ export const StationCard = forwardRef<HTMLDivElement, Props>(
 					src={station.favicon}
 					isPause={isPause}
 				/>
-				<div className="station-card__name">{station.name}</div>
+				<div className="station-card__info">
+					<div className="station-card__name">{station.name}</div>
+					{isStationSelected && (
+						<div className="station-card__track-title">{trackTitle}</div>
+					)}
+				</div>
 				<StationCardContextMenu station={station} />
 			</div>
 		)

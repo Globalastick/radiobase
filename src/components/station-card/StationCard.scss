@@ -66,4 +66,11 @@
 		cursor: grabbing;
 		transition-duration: 0s;
 	}
+
+	&__track-title {
+		padding-top: 2px;
+		font-size: 0.8em;
+		line-height: 1;
+		opacity: 0.8;
+	}
 }
