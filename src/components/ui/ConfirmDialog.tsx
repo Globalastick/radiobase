@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useConfirmStore } from 'src/stores/confirmDialog.store'
 import { Button } from './Button'
 import { Modal } from './Modal'
@@ -8,6 +9,8 @@ export const ConfirmDialog = () => {
 	const title = useConfirmStore((state) => state.title)
 	const onConfirm = useConfirmStore((state) => state.onConfirm)
 	const onClose = useConfirmStore((state) => state.onClose)
+
+	const { t } = useTranslation()
 
 	const handleConfirm = () => {
 		if (onConfirm) {
@@ -26,14 +29,14 @@ export const ConfirmDialog = () => {
 			onClose={onClose}>
 			<div className="confirm-dialog">
 				<h3 className="confirm-dialog__title">{title}</h3>
-				<div className="confirm-dialog__text">Are you sure?</div>
+				<div className="confirm-dialog__text">{t('confirm-dialog.are-you-sure')}</div>
 				<div className="confirm-dialog__buttons">
 					<Button
 						color="danger"
 						onClick={handleConfirm}>
-						Confirm
+						{t('confirm-dialog.confirm')}
 					</Button>
-					<Button onClick={onClose}>Cancel</Button>
+					<Button onClick={onClose}>{t('confirm-dialog.cancel')}</Button>
 				</div>
 			</div>
 		</Modal>

@@ -9,7 +9,7 @@ export const defaultFavoriteStationIds = [
 	'94629921-717b-4752-a945-f3795321cd0a', // Venice Classic Radio
 	'9606bd06-0601-11e8-ae97-52543be04c81', // Radio Classique
 	'ca2d0aa2-6fc8-4761-beb6-ce692a4a9bf5', // Best Of Rock.FM Alternative Rock
-	'96202df9-0601-11e8-ae97-52543be04c81', // CORE Radio!
+	'e5988c57-8314-4727-8922-276ecb0b117c', // CORE RADIO
 	'6a223c05-6d45-4076-9623-bc54f2fdc3df', // Radio Caprice - Deathcore
 	'b5be28a3-4fa3-42b9-a9dd-168cc25961a3', // Algorythme Drum & Bass
 	'd1a54d2e-623e-4970-ab11-35f7b56c5ec3', // Classic Vinyl HD

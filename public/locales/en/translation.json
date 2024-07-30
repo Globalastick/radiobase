@@ -1,0 +1,55 @@
+{
+	"header": {
+		"change-theme": "Change theme"
+	},
+	"grid": {
+		"favorite-stations": "Favorite stations",
+		"found-stations": {
+			"found-stations": "Found stations",
+			"station-search": "Station search",
+			"top-rated": "Top rated",
+			"top-clicked": "Top clicked"
+		}
+	},
+	"context-menu": {
+		"add-to-favorites": "Add to fovorites",
+		"remove-from-favorites": "Remove from fovorites",
+		"copy-link-on-station": "Copy link on station",
+		"full-station-info": "Full station info"
+	},
+	"settings": {
+		"settings": "Settings",
+		"general": "General",
+		"autoplay-last-selected-station": "Autoplay last selected station",
+		"show-track-title": "Show track title (may not work for some stations)",
+		"dark-theme": "Dark theme",
+		"language": "Language",
+		"reset": "Reset",
+		"reset-favorite-stations": "Reset favorite stations",
+		"reset-settings": "Reset settings"
+	},
+	"hotkeys": {
+		"hotkeys": "Hotkeys",
+		"mouse-wheel-up": "Mouse wheel up",
+		"mouse-wheel-up-title": "When hovering over the volume control",
+		"mouse-wheel-up-description": "Increase volume by 5%",
+		"mouse-wheel-down": "Mouse wheel down",
+		"mouse-wheel-down-description": "Decrease volume by 5%",
+		"spase": "Space",
+		"play-pause": "Play/Pause"
+	},
+	"drag-and-drop": {
+		"drag-and-drop": "Drag-and-drop",
+		"description": "Sort your favorite stations by drag and drop."
+	},
+	"confirm-dialog": {
+		"are-you-sure": "Are you sure?",
+		"confirm": "Confirm",
+		"cancel": "Cancel"
+	},
+	"page-not-found": {
+		"page-not-found": "Page not found.",
+		"station-info-not-found": "Station info not found.",
+		"go-home": "Go home"
+	}
+}

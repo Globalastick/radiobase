@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { getStationById } from 'src/api/radiobrowser.api'
 import { StationCard } from 'src/components/station-card'
@@ -12,6 +13,8 @@ export const StationPage = () => {
 	const { stationId } = useParams()
 	const [isLoading, setIsLoading] = useState(true)
 	const [stationInfo, setStationInfo] = useState<IStation>()
+
+	const { t } = useTranslation()
 
 	useEffect(() => {
 		stationId &&
@@ -55,7 +58,7 @@ export const StationPage = () => {
 	return (
 		<PageNotFound
 			show404Title={false}
-			message="Station info not found."
+			message={t('page-not-found.station-info-not-found')}
 		/>
 	)
 }

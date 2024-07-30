@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import { useGetStationsStore } from 'src/stores/getStations.store.ts'
 import { useDebounce } from 'use-debounce'
@@ -19,6 +20,8 @@ export const StationsSearch = () => {
 	const getStationsByTopVote = useGetStationsStore((state) => state.getStationsByTopVote)
 	const getStationsByTopClick = useGetStationsStore((state) => state.getStationsByTopClick)
 	const getMoreStations = useGetStationsStore((state) => state.getMoreStations)
+
+	const { t } = useTranslation()
 
 	const handleInputOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchInputText(event.target.value)
@@ -54,11 +57,13 @@ export const StationsSearch = () => {
 						value={searchInputText}
 						onChange={handleInputOnChange}
 						type="text"
-						placeholder="Station search"
+						placeholder={t('grid.found-stations.station-search')}
 					/>
 				</div>
-				<Button onClick={getStationsByTopVote}>Top rated</Button>
-				<Button onClick={getStationsByTopClick}>Top clicked</Button>
+				<Button onClick={getStationsByTopVote}>{t('grid.found-stations.top-rated')}</Button>
+				<Button onClick={getStationsByTopClick}>
+					{t('grid.found-stations.top-clicked')}
+				</Button>
 			</div>
 			<div className="stations-search__result">
 				{isError && (
@@ -68,7 +73,9 @@ export const StationsSearch = () => {
 				)}
 				<StationsGridContainer
 					stations={foundStations}
-					name={foundStations.length ? 'Found stations' : undefined}
+					name={
+						foundStations.length ? t('grid.found-stations.found-stations') : undefined
+					}
 				/>
 				<div
 					ref={loadMoreRef}

@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from 'src/components/ui/Button'
 import { useFavoriteStationsStore } from 'src/stores/favoriteStations.store'
 import { IStation } from 'src/types/station.types'
@@ -42,6 +43,8 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const [topOffset, setTopOffset] = useState(0)
 
+	const { t } = useTranslation()
+
 	const handleOnClickCopyStationLink = () => {
 		const url = window.location.origin + `/station/${station.stationuuid}`
 		navigator.clipboard.writeText(url)
@@ -72,7 +75,7 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 						color="success"
 						variant="text"
 						onClick={() => appendStation(station)}>
-						Add to fovorites
+						{t('context-menu.add-to-favorites')}
 					</Button>
 				</li>
 				<li className="context-menu__item">
@@ -80,21 +83,21 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 						color="danger"
 						variant="text"
 						onClick={() => removeStation(station)}>
-						Remove from fovorites
+						{t('context-menu.remove-from-favorites')}
 					</Button>
 				</li>
 				<li className="context-menu__item">
 					<Button
 						variant="text"
 						onClick={handleOnClickCopyStationLink}>
-						Copy link on station
+						{t('context-menu.copy-link-on-station')}
 					</Button>
 				</li>
 				<li className="context-menu__item">
 					<Button
 						variant="text"
 						href={`/station/${station.stationuuid}`}>
-						Full station info
+						{t('context-menu.full-station-info')}
 					</Button>
 				</li>
 			</ul>

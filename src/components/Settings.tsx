@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next'
 import { Modal } from 'src/components/ui/Modal'
 import { useConfirmStore } from 'src/stores/confirmDialog.store'
 import { useFavoriteStationsStore } from 'src/stores/favoriteStations.store'
 import { useSettingsStore } from 'src/stores/settings.store'
+import { LanguageSelect } from './LanguageSelect'
 import { Button } from './ui/Button'
 import { CheckBox } from './ui/CheckBox'
 import { ConfirmDialog } from './ui/ConfirmDialog'
@@ -27,6 +29,8 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 	const toggleIsShowTrackTitle = useSettingsStore((state) => state.toggleIsShowTrackTitle)
 	const openConfirmDialog = useConfirmStore((state) => state.open)
 
+	const { t } = useTranslation()
+
 	return (
 		<>
 			<Modal
@@ -37,23 +41,23 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 					onClick={(event) => {
 						event.stopPropagation()
 					}}>
-					<h2 className="settings__title">Settings</h2>
+					<h2 className="settings__title">{t('settings.settings')}</h2>
 					<div className="settings__group">
-						<h3 className="settings__label">General</h3>
+						<h3 className="settings__label">{t('settings.general')}</h3>
 						<CheckBox
-							label="Autoplay last selected station"
+							label={t('settings.autoplay-last-selected-station')}
 							isChecked={isAutoplayLastLelectedStaion}
 							onChange={toggleIsAutoplayLastSelectedStaion}
 						/>
 						<CheckBox
-							label="Show track title (may not work for some stations)"
+							label={t('settings.show-track-title')}
 							isChecked={isShowTrackTitle}
 							onChange={() => {
 								toggleIsShowTrackTitle()
 							}}
 						/>
 						<CheckBox
-							label="Dark theme"
+							label={t('settings.dark-theme')}
 							isChecked={theme === 'themeDark'}
 							onChange={() => {
 								toggleTheme()
@@ -61,58 +65,70 @@ export const Settings = ({ isOpen, onClose }: Props) => {
 						/>
 					</div>
 					<div className="settings__group">
+						<h3 className="settings__label">{t('settings.language')}</h3>
+						<LanguageSelect />
+					</div>
+					<div className="settings__group">
+						<h3 className="settings__label">{t('settings.reset')}</h3>
 						<div className="settings__reset-buttons-group">
 							<Button
 								color="danger"
 								onClick={() => {
 									openConfirmDialog(
-										'Reset favorite stations',
+										t('settings.reset-favorite-stations'),
 										resetFavoriteStations,
 									)
 								}}>
-								Reset favorite stations
+								{t('settings.reset-favorite-stations')}
 							</Button>
 							<Button
 								color="danger"
 								onClick={() => {
-									openConfirmDialog('Reset settings', resetAllSettings)
+									openConfirmDialog(
+										t('settings.reset-settings'),
+										resetAllSettings,
+									)
 								}}>
-								Reset settings
+								{t('settings.reset-settings')}
 							</Button>
 						</div>
 					</div>
 					<div className="settings__group">
-						<h3 className="settings__label">Hotkeys</h3>
+						<h3 className="settings__label">{t('hotkeys.hotkeys')}</h3>
 						<div className="hotkey">
 							<div className="hotkey__keys-group">
 								<kbd className="hotkey__key">+</kbd>/
 								<kbd
 									className="hotkey__key"
-									title="When hovering over the volume control">
-									Mouse wheel up
+									title={t('hotkeys.mouse-wheel-up-title')}>
+									{t('hotkeys.mouse-wheel-up')}
 								</kbd>
 							</div>
-							<span className="hotkey__description">Increase volume by 5%</span>
+							<span className="hotkey__description">
+								{t('hotkeys.mouse-wheel-up-description')}
+							</span>
 						</div>
 						<div className="hotkey">
 							<div className="hotkey__keys-group">
 								<kbd className="hotkey__key">-</kbd>/
 								<kbd
 									className="hotkey__key"
-									title="When hovering over the volume control">
-									Mouse wheel down
+									title={t('hotkeys.mouse-wheel-up-title')}>
+									{t('hotkeys.mouse-wheel-down')}
 								</kbd>
 							</div>
-							<span className="hotkey__description">Decrease volume by 5%</span>
+							<span className="hotkey__description">
+								{t('hotkeys.mouse-wheel-down-description')}%
+							</span>
 						</div>
 						<div className="hotkey">
-							<kbd className="hotkey__key">Space</kbd>
-							<span className="hotkey__description">Play/Pause</span>
+							<kbd className="hotkey__key">{t('hotkeys.spase')}</kbd>
+							<span className="hotkey__description">{t('hotkeys.play-pause')}</span>
 						</div>
 					</div>
 					<div className="settings__group">
-						<h3 className="settings__label">Drag-and-drop</h3>
-						<div>Sort your favorite stations by drag and drop.</div>
+						<h3 className="settings__label">{t('drag-and-drop.drag-and-drop')}</h3>
+						<div>{t('drag-and-drop.description')}</div>
 					</div>
 				</div>
 			</Modal>

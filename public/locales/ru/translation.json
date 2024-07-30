@@ -1,0 +1,55 @@
+{
+	"header": {
+		"change-theme": "Сменить тему"
+	},
+	"grid": {
+		"favorite-stations": "Избранные станции",
+		"found-stations": {
+			"found-stations": "Найденные станции",
+			"station-search": "Поиск станций",
+			"top-rated": "Популярные",
+			"top-clicked": "Наиболее нажимаемые"
+		}
+	},
+	"context-menu": {
+		"add-to-favorites": "Добавить в избранное",
+		"remove-from-favorites": "Удалить из избранного",
+		"copy-link-on-station": "Скопировать ссылку на станцию",
+		"full-station-info": "Полная информация"
+	},
+	"settings": {
+		"settings": "Настройки",
+		"general": "Основные",
+		"autoplay-last-selected-station": "Автовоспроизведение последней выбранной станции",
+		"show-track-title": "Показывать название трека (может не работать для некоторых станции)",
+		"dark-theme": "Тёмная тема",
+		"language": "Язык",
+		"reset": "Сброс",
+		"reset-favorite-stations": "Сбросить избранные станции",
+		"reset-settings": "Сбросить настройки"
+	},
+	"hotkeys": {
+		"hotkeys": "Горячие клавиши",
+		"mouse-wheel-up": "Колесо мыши вверх",
+		"mouse-wheel-up-title": "При наведении курсора на регулятор громкости",
+		"mouse-wheel-up-description": "Увеличить звук на 5%",
+		"mouse-wheel-down": "Колесо мыши вниз",
+		"mouse-wheel-down-description": "Уменьшить звук на 5%",
+		"spase": "Пробел",
+		"play-pause": "Воспроизведение/Пауза"
+	},
+	"drag-and-drop": {
+		"drag-and-drop": "Перетаскивание",
+		"description": "Сортируйте избранные станции с помощью перетаскивания."
+	},
+	"confirm-dialog": {
+		"are-you-sure": "Вы уверены?",
+		"confirm": "Подтвердить",
+		"cancel": "Отмена"
+	},
+	"page-not-found": {
+		"page-not-found": "Страница не найдена.",
+		"station-info-not-found": "Информация о станции не найдена.",
+		"go-home": "Перейти на главную"
+	}
+}

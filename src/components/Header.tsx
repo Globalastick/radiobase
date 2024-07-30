@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import GithubIconSvg from 'src/assets/icons/github.svg?react'
 import LogoIconSvg from 'src/assets/icons/logo.svg?react'
@@ -11,6 +12,8 @@ export const Header = () => {
 	const toggleTheme = useSettingsStore((state) => state.toggleTheme)
 	const isOpen = useModalStore((state) => state.isOpen)
 	const setIsOpen = useModalStore((state) => state.setIsOpen)
+
+	const { t } = useTranslation()
 
 	return (
 		<header className="header">
@@ -33,13 +36,13 @@ export const Header = () => {
 					</li>
 					<li
 						className="header__menu-item header__menu-item-settings"
-						title="Settings"
+						title={t('settings.settings')}
 						onClick={() => setIsOpen(true)}>
 						<SettingsIconSvg width={20} />
 					</li>
 					<li
 						className="header__menu-item"
-						title="Change theme">
+						title={t('header.change-theme')}>
 						<div
 							className="theme-changer"
 							onClick={() => toggleTheme()}></div>

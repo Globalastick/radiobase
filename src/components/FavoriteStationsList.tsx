@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useFavoriteStationsStore } from 'src/stores/favoriteStations.store'
 import { useSearchElementStore } from 'src/stores/searchElement.store'
 import { PlusMinusButton } from './ui/PlusMinusButton'
@@ -10,11 +11,13 @@ export const FavoriteStationsList = () => {
 	const isOpen = useSearchElementStore((state) => state.showStationsSearchElement)
 	const toggleOpen = useSearchElementStore((state) => state.toggleOpen)
 
+	const { t } = useTranslation()
+
 	return (
 		<StationsGridContainerSortable
 			stations={favoriteStations}
 			setStations={setFavoriteStations}
-			name="Favorite stations"
+			name={t('grid.favorite-stations')}
 			additionlChildren={
 				<PlusMinusButton
 					isMinus={isOpen}
