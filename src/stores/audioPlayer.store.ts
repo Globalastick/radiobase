@@ -11,6 +11,7 @@ interface IAudioPlayerState {
 	trackTitle: string
 	currentStation: IStation | null
 	attempsToChangeSrc: number
+	volumePercentageShowTimeoutId: NodeJS.Timeout | number | undefined
 	setVolume: (volume: number) => void
 	setTrackTitle: (newTitle: string) => void
 	unloadSourceUrl: () => void
@@ -18,6 +19,7 @@ interface IAudioPlayerState {
 	play: () => void
 	togglePlayState: () => void
 	updateCurrentStationState: (newStationInfo: IStation) => void
+	showVolumePercentageWithTimeout: () => void
 }
 
 export const useAudioPlayerStore = create<IAudioPlayerState>()(
@@ -29,6 +31,7 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 			trackTitle: 'Track title',
 			currentStation: null,
 			attempsToChangeSrc: 0,
+			volumePercentageShowTimeoutId: undefined,
 			setVolume: (volume) => {
 				const protectedVolume = Math.min(Math.max(volume, 0), 100)
 				set(() => ({ volume: protectedVolume }))
@@ -84,6 +87,20 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 					set({ currentStation: newStationInfo, trackTitle: '' })
 					get().play()
 				}
+			},
+			showVolumePercentageWithTimeout: () => {
+				if (get().volumePercentageShowTimeoutId) {
+					clearTimeout(get().volumePercentageShowTimeoutId)
+				}
+
+				setTimeout(() => {
+					document.documentElement.style.setProperty('--volume-percentage-opacity', '1')
+				}, 0)
+				const timeoutId = setTimeout(() => {
+					document.documentElement.style.setProperty('--volume-percentage-opacity', '0')
+				}, 1200)
+
+				set({ volumePercentageShowTimeoutId: timeoutId })
 			},
 		}),
 		{

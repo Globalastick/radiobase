@@ -17,7 +17,8 @@ const isInputInFocus = () => {
 }
 
 export const useKeyboard = () => {
-	const { togglePlayState, volume, setVolume } = useAudioPlayerStore((state) => state)
+	const { togglePlayState, volume, setVolume, showVolumePercentageWithTimeout } =
+		useAudioPlayerStore((state) => state)
 	const { setIsOpen } = useModalStore((state) => state)
 
 	const handleKeyDown = useCallback(
@@ -30,10 +31,12 @@ export const useKeyboard = () => {
 					break
 				case 'Equal':
 				case 'NumpadAdd':
+					showVolumePercentageWithTimeout()
 					setVolume(volume + 5)
 					break
 				case 'Minus':
 				case 'NumpadSubtract':
+					showVolumePercentageWithTimeout()
 					setVolume(volume - 5)
 					break
 				case 'Escape':

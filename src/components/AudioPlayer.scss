@@ -13,15 +13,11 @@
 	backdrop-filter: blur(10px);
 
 	&__volume-wrapper {
-		--isPercentageDisplay: none;
-		--isPercentageOpacity: 0;
-
 		position: relative;
 		height: var(--volume-controller-height);
 
 		@include hover {
-			--isPercentageDisplay: block;
-			--isPercentageOpacity: 1;
+			--volume-percentage-opacity: 1;
 		}
 	}
 
@@ -57,7 +53,7 @@
 		align-items: center;
 		height: var(--volume-controller-height);
 		color: rgb(0 0 0 / 35%);
-		opacity: var(--isPercentageOpacity);
+		opacity: var(--volume-percentage-opacity);
 		pointer-events: none;
 		transition-duration: var(--transition-duration);
 		translate: -50%;
