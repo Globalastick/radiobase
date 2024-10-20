@@ -2,18 +2,17 @@ import { useCallback, useEffect } from 'react'
 import { useAudioPlayerStore } from 'src/stores/audioPlayer.store'
 import { useModalStore } from 'src/stores/modal.store'
 
-const isInputInFocus = () => {
-	const activeElement = document.activeElement
+const textInputSelector = [
+	'input[type="text"]',
+	'input[type="email"]',
+	'input[type="password"]',
+	'input[type="search"]',
+	'textarea',
+	'[contenteditable="true"]',
+].join(', ')
 
-	if (
-		(activeElement instanceof HTMLInputElement && activeElement.type !== 'range') ||
-		activeElement instanceof HTMLTextAreaElement ||
-		(activeElement instanceof HTMLElement && activeElement.isContentEditable)
-	) {
-		return true
-	} else {
-		return false
-	}
+const isTextInputInFocus = () => {
+	return document.activeElement?.matches(textInputSelector) || false
 }
 
 export const useKeyboard = () => {
@@ -23,7 +22,7 @@ export const useKeyboard = () => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
-			if (isInputInFocus()) return
+			if (isTextInputInFocus()) return
 
 			switch (event.code) {
 				case 'Space':
