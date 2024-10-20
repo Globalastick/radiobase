@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .container {
-	max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+	width: clamp(320px, 100vw, calc(var(--container-width) + var(--container-padding-x) * 2));
 	margin-inline: auto;
 	padding-inline: var(--container-padding-x);
 
