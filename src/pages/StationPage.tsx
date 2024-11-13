@@ -1,30 +1,41 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { getStationById } from 'src/api/radiobrowser.api'
+import { getStationsById } from 'src/api/radiobrowser.api'
 import { StationCard } from 'src/components/station-card'
 import { LoadingBall } from 'src/components/ui/LoadingBall'
 import { StationLogo } from 'src/components/ui/StationLogo'
 import { PageNotFound } from 'src/pages/PageNotFound'
+import { useFavoriteStationsStore } from 'src/stores/favoriteStations.store'
+import { useGetStationsStore } from 'src/stores/getStations.store'
 import { IStation } from 'src/types/station.types'
 import './StationPage.scss'
 
 export const StationPage = () => {
-	const { stationId } = useParams()
-	const [isLoading, setIsLoading] = useState(true)
-	const [stationInfo, setStationInfo] = useState<IStation>()
+	const { stationuuid } = useParams()
+	const favoriteStations = useFavoriteStationsStore((state) => state.favoriteStations)
+	const updateStation = useFavoriteStationsStore((state) => state.updateStation)
+	const foundStations = useGetStationsStore((state) => state.stations)
+	const [stationInfo, setStationInfo] = useState<IStation | undefined>(
+		favoriteStations.find((station) => station.stationuuid === stationuuid) ||
+			foundStations.find((station) => station.stationuuid === stationuuid),
+	)
+	const [isLoadingUpdatedInfo, setIsLoadingUpdatedInfo] = useState(true)
 
 	const { t } = useTranslation()
 
 	useEffect(() => {
-		stationId &&
-			getStationById(stationId).then((stationInfo) => {
-				stationInfo && setStationInfo(stationInfo[0])
-				setIsLoading(false)
+		stationuuid &&
+			getStationsById(stationuuid).then((stationsInfo) => {
+				if (stationsInfo.length) {
+					setStationInfo(stationsInfo[0])
+					updateStation(stationsInfo[0])
+				}
+				setIsLoadingUpdatedInfo(false)
 			})
 	}, [])
 
-	if (isLoading) {
+	if (!stationInfo && isLoadingUpdatedInfo) {
 		return <LoadingBall />
 	}
 
@@ -37,6 +48,7 @@ export const StationPage = () => {
 					size="large"
 				/>
 				<StationCard station={stationInfo} />
+				{isLoadingUpdatedInfo && <LoadingBall />}
 				<div className="station-page__full-info full-info">
 					{Object.entries(stationInfo).map(([key, value]) => {
 						return (

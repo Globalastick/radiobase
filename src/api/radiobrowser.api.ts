@@ -40,14 +40,12 @@ export const getTopClicked = async (offset: number = 0) => {
 	return requestApi('/stations/topclick', { offset, order: 'clickcount' })
 }
 
-export const getStationById = async (stationId: string) => {
-	return requestApi('/stations/byuuid', { uuids: stationId })
+export const getStationsById = async (uuids: string | string[]) => {
+	return requestApi('/stations/byuuid', { uuids: uuids.toString() })
 }
 
 export const getInitialFavoriteStations = async () => {
-	const data = await requestApi('/stations/byuuid', {
-		uuids: defaultFavoriteStationIds.toString(),
-	})
+	const data = await getStationsById(defaultFavoriteStationIds)
 
 	return data.sort((a, b) => {
 		return (

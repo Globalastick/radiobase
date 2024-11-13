@@ -28,7 +28,7 @@ function App() {
 						element={<MainPage />}
 					/>
 					<Route
-						path={'/station/:stationId'}
+						path={'/station/:stationuuid'}
 						element={<StationPage />}
 					/>
 					<Route
