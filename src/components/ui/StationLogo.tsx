@@ -18,29 +18,23 @@ export const StationLogo = ({ src, isPause, size = 'medium' }: Props) => {
 		logoImg.onload = () => setLogoSrc(src)
 	}, [src])
 
-	if (isPause) {
-		return (
-			<div className={className}>
-				<div className="station-logo__pause-icon"></div>
-			</div>
-		)
-	}
+	const renderContent = () => {
+		if (isPause) {
+			return <div className="station-logo__pause-icon"></div>
+		}
 
-	if (!logoSrc) {
-		return (
-			<div className={className}>
-				<StationLogoPlaceholderSvg />
-			</div>
-		)
-	}
+		if (!logoSrc) {
+			return <StationLogoPlaceholderSvg />
+		}
 
-	return (
-		<div className={className}>
+		return (
 			<img
 				className="station-logo__image"
 				src={logoSrc}
 				alt="logo"
 			/>
-		</div>
-	)
+		)
+	}
+
+	return <div className={className}>{renderContent()}</div>
 }
