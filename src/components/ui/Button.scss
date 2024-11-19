@@ -53,4 +53,10 @@
 		color: var(--color-text);
 		background-color: transparent;
 	}
+
+	&--s {
+		min-height: 24px;
+		border-radius: var(--border-radius-tiny);
+		font-size: 13px;
+	}
 }

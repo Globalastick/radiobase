@@ -72,6 +72,7 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 			<ul className="context-menu__inner">
 				<li className="context-menu__item">
 					<Button
+						size="s"
 						color="success"
 						variant="text"
 						onClick={() => appendStation(station)}>
@@ -80,6 +81,7 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 				</li>
 				<li className="context-menu__item">
 					<Button
+						size="s"
 						color="danger"
 						variant="text"
 						onClick={() => removeStation(station)}>
@@ -88,6 +90,7 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 				</li>
 				<li className="context-menu__item">
 					<Button
+						size="s"
 						variant="text"
 						onClick={handleOnClickCopyStationLink}>
 						{t('context-menu.copy-link-on-station')}
@@ -95,6 +98,7 @@ const ContextMenu = ({ station, onMouseLeave }: IContextMenuProps) => {
 				</li>
 				<li className="context-menu__item">
 					<Button
+						size="s"
 						variant="text"
 						href={`/station/${station.stationuuid}`}>
 						{t('context-menu.full-station-info')}
