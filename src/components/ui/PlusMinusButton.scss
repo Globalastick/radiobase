@@ -12,11 +12,6 @@
 	user-select: none;
 	transition-duration: 0.2s;
 
-	@include mobile {
-		--station-image-width: 32px;
-		--station-card-padding: 4px;
-	}
-
 	@include hover {
 		color: var(--color-text-accent);
 		background-color: var(--color-bg-accent);

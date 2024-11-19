@@ -15,11 +15,6 @@
 	cursor: pointer;
 	transition-duration: var(--transition-duration);
 
-	@include mobile {
-		--station-image-width: 32px;
-		--station-card-padding: 4px;
-	}
-
 	&:hover {
 		--detailsBtnOpacity: 1;
 

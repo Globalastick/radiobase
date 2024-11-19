@@ -1,3 +1,5 @@
+@import 'src/styles/media';
+
 :root[data-theme='themeLight'] {
 	--color-bg: #f7e7d9;
 	--color-card-bg: #edddcf;
@@ -30,6 +32,7 @@
 	--border: 1px solid rgb(0 0 0 / 16%);
 	--border-radius: 12px;
 	--border-radius-small: 8px;
+	--border-radius-tiny: 6px;
 	--border-radius-large: 24px;
 	--shadow: 0 1px 2px 0 rgb(0 0 0 / 16%);
 	--font-family-base: 'Rubik', sans-serif;
@@ -39,8 +42,13 @@
 	--transition-duration: 0.2s;
 	--station-image-width: 48px;
 	--station-card-padding: 8px;
-	--burger-line-width: calc(var(--station-image-width) / 2);
-	--burger-line-height: calc(var(--station-image-width) / 12);
+	--burger-line-width: 24px;
+	--burger-line-height: 4px;
 	--volume-controller-height: 1.5rem;
 	--volume-percentage-opacity: 0;
+
+	@include mobile {
+		--station-image-width: 32px;
+		--station-card-padding: 4px;
+	}
 }
