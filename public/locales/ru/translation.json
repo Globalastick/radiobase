@@ -51,5 +51,12 @@
 		"page-not-found": "Страница не найдена.",
 		"station-info-not-found": "Информация о станции не найдена.",
 		"go-home": "Перейти на главную"
+	},
+	"station-tooltip": {
+		"number-of-votes-for-this-station": "Количество голосов за эту станцию",
+		"clicks-within-the-last-24-hours": "Клики за последние 24 часа",
+		"codec-and-bitrate": "Кодек и битрейт",
+		"country": "Страна",
+		"full-station-info": "Полная информация"
 	}
 }

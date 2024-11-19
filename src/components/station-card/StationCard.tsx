@@ -3,6 +3,7 @@ import { StationLogo } from 'src/components/ui/StationLogo'
 import { useAudioPlayerStore } from 'src/stores/audioPlayer.store'
 import { IStation } from 'src/types/station.types'
 import { StationCardContextMenu } from './StationCardContextMenu'
+import { StationCardTooltip } from './StationCardTooltip'
 import './StationCard.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -32,10 +33,12 @@ export const StationCard = forwardRef<HTMLDivElement, Props>(
 				ref={ref}
 				style={style}
 				{...props}>
-				<StationLogo
-					src={station.favicon}
-					isPause={isPause}
-				/>
+				<StationCardTooltip station={station}>
+					<StationLogo
+						src={station.favicon}
+						isPause={isPause}
+					/>
+				</StationCardTooltip>
 				<div className="station-card__info">
 					<div className="station-card__name">{station.name}</div>
 					{isStationSelected && (

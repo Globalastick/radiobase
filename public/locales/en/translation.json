@@ -51,5 +51,12 @@
 		"page-not-found": "Page not found.",
 		"station-info-not-found": "Station info not found.",
 		"go-home": "Go home"
+	},
+	"station-tooltip": {
+		"number-of-votes-for-this-station": "Number of votes for this station",
+		"clicks-within-the-last-24-hours": "Clicks within the last 24 hours",
+		"codec-and-bitrate": "Codec and bitrate",
+		"country": "Country",
+		"full-station-info": "Full station info"
 	}
 }
