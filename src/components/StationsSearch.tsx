@@ -58,6 +58,7 @@ export const StationsSearch = () => {
 						onChange={handleInputOnChange}
 						type="text"
 						placeholder={t('grid.found-stations.station-search')}
+						autoFocus
 					/>
 				</div>
 				<Button onClick={getStationsByTopVote}>{t('grid.found-stations.top-rated')}</Button>
