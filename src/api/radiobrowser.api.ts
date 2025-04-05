@@ -3,12 +3,35 @@ import { IRadioBrowserQuaryParams } from 'src/types/radiobrowser.types'
 import { IStation } from 'src/types/station.types'
 import { defaultFavoriteStationIds } from './defaultStations'
 
-const baseURL =
-	window.location.protocol === 'http:'
-		? 'http://de1.api.radio-browser.info/json'
-		: 'https://de1.api.radio-browser.info/json'
+let baseURL: string | undefined
 
 export const LIMIT = 50
+
+type ServerInfo = {
+	ip: string
+	name: string
+}
+
+const getBaseUrls = async (): Promise<string[]> => {
+	const { data } = await axios<ServerInfo[]>('https://all.api.radio-browser.info/json/servers')
+	const protocol = window.location.protocol === 'http:' ? 'http://' : 'https://'
+	const baseUrls = data.map((server) => `${protocol}${server.name}/json`)
+	return baseUrls
+}
+
+const getRandomBaseUrl = async () => {
+	const baseUrls = await getBaseUrls()
+	return baseUrls[Math.floor(Math.random() * baseUrls.length)]
+}
+
+const getBaseUrl = async () => {
+	if (!baseURL) {
+		baseURL = await getRandomBaseUrl()
+		return baseURL
+	}
+
+	return baseURL
+}
 
 const defaultParams: IRadioBrowserQuaryParams = {
 	limit: LIMIT,
@@ -21,7 +44,7 @@ const defaultParams: IRadioBrowserQuaryParams = {
 const requestApi = async (url: string, params?: Partial<IRadioBrowserQuaryParams>) => {
 	const { data } = await axios<IStation[]>({
 		method: 'GET',
-		baseURL: baseURL,
+		baseURL: await getBaseUrl(),
 		url: url,
 		params: { ...defaultParams, ...params },
 	})
