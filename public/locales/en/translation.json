@@ -20,7 +20,7 @@
 	"settings": {
 		"settings": "Settings",
 		"general": "General",
-		"autoplay-last-selected-station": "Autoplay last selected station",
+		"autoplay-last-selected-station": "Automatically play the last selected station (if allowed by browser settings)",
 		"show-track-title": "Show track title (may not work for some stations)",
 		"dark-theme": "Dark theme",
 		"language": "Language",

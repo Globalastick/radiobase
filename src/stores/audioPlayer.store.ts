@@ -55,8 +55,15 @@ export const useAudioPlayerStore = create<IAudioPlayerState>()(
 				audio.load()
 
 				audio.onloadeddata = () => {
-					audio.play()
-					set({ audioPlayerState: 'playing' })
+					audio
+						.play()
+						.then(() => {
+							set({ audioPlayerState: 'playing' })
+						})
+						.catch(() => {
+							// Autoplay is not allowed by browser settings
+							set({ audioPlayerState: 'pause' })
+						})
 				}
 				audio.onerror = () => {
 					// Ignores the error caused by passing an empty string to audio.src
