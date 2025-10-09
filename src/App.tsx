@@ -1,3 +1,4 @@
+import 'src/styles'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { AudioPlayer } from './components/AudioPlayer'

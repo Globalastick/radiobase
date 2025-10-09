@@ -40,4 +40,11 @@ export default defineConfig({
 			src: '/src',
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@use 'src/styles/helpers' as *;`,
+			},
+		},
+	},
 })
