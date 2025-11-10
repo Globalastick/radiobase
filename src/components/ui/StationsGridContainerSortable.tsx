@@ -15,7 +15,7 @@ interface Props {
 	stations: IStation[]
 	setStations: (stations: IStation[]) => void
 	name?: string
-	additionlChildren?: JSX.Element | JSX.Element[]
+	additionlChildren?: React.ReactNode | React.ReactNode[]
 }
 
 export const StationsGridContainerSortable = ({

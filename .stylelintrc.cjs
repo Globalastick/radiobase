@@ -3,6 +3,7 @@ module.exports = {
 	plugins: ['stylelint-order'],
 	ignoreFiles: ['dist/**/*', '_metadata/**/*'],
 	rules: {
+		'property-no-deprecated': null,
 		'custom-property-pattern': [
 			'^([a-z][a-z0-9]*)((-)?([A-Z])?[a-z0-9]+)*$',
 			{

@@ -15,7 +15,7 @@ export const AudioPlayer = () => {
 		setVolume(newVolume)
 	}
 
-	const wheelTimeout = useRef<NodeJS.Timeout>()
+	const wheelTimeout = useRef<NodeJS.Timeout | undefined>(undefined)
 
 	const handleVolumeOnWheel = (event: React.WheelEvent) => {
 		const newVolume = volume + (event.deltaY < 0 ? 5 : -5)
@@ -38,7 +38,7 @@ export const AudioPlayer = () => {
 	}, [])
 
 	useEffect(() => {
-		isAutoplay && play()
+		if (isAutoplay) play()
 	}, [])
 
 	useTrackTitle()

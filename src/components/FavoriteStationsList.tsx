@@ -5,7 +5,6 @@ import { PlusMinusButton } from './ui/PlusMinusButton'
 import { StationsGridContainerSortable } from './ui/StationsGridContainerSortable'
 
 export const FavoriteStationsList = () => {
-	useFavoriteStationsStore
 	const favoriteStations = useFavoriteStationsStore((state) => state.favoriteStations)
 	const setFavoriteStations = useFavoriteStationsStore((state) => state.setFavoriteStations)
 	const isOpen = useSearchElementStore((state) => state.showStationsSearchElement)

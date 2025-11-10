@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAudioPlayerStore } from 'src/stores/audioPlayer.store'
 import { useModalStore } from 'src/stores/modal.store'
 
@@ -20,31 +20,28 @@ export const useKeyboard = () => {
 		useAudioPlayerStore((state) => state)
 	const { setIsOpen } = useModalStore((state) => state)
 
-	const handleKeyDown = useCallback(
-		(event: KeyboardEvent) => {
-			if (isTextInputInFocus()) return
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (isTextInputInFocus()) return
 
-			switch (event.code) {
-				case 'Space':
-					togglePlayState()
-					break
-				case 'Equal':
-				case 'NumpadAdd':
-					showVolumePercentageWithTimeout()
-					setVolume(volume + 5)
-					break
-				case 'Minus':
-				case 'NumpadSubtract':
-					showVolumePercentageWithTimeout()
-					setVolume(volume - 5)
-					break
-				case 'Escape':
-					setIsOpen(false)
-					break
-			}
-		},
-		[togglePlayState, volume],
-	)
+		switch (event.code) {
+			case 'Space':
+				togglePlayState()
+				break
+			case 'Equal':
+			case 'NumpadAdd':
+				showVolumePercentageWithTimeout()
+				setVolume(volume + 5)
+				break
+			case 'Minus':
+			case 'NumpadSubtract':
+				showVolumePercentageWithTimeout()
+				setVolume(volume - 5)
+				break
+			case 'Escape':
+				setIsOpen(false)
+				break
+		}
+	}
 
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyDown)

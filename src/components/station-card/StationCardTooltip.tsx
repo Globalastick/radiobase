@@ -119,14 +119,28 @@ const StationCardTooltipContent = ({
 	const { t } = useTranslation()
 
 	useLayoutEffect(() => {
-		if (tooltipContentRef.current) {
-			const tooltipRect = tooltipContentRef.current.getBoundingClientRect()
-			const isTooltipOutOfView = tooltipRect.bottom > window.innerHeight
-			if (isTooltipOutOfView) {
-				setStyles(tooltipStyles.top)
-				setArrowDirection('down')
-			}
+		const tooltipElement = tooltipContentRef.current
+		if (!tooltipElement) {
+			return
 		}
+
+		const tooltipRect = tooltipElement.getBoundingClientRect()
+		const isTooltipOutOfView = tooltipRect.bottom > window.innerHeight
+
+		setStyles(() => {
+			if (isTooltipOutOfView) {
+				return tooltipStyles.top
+			}
+
+			return tooltipStyles.bottom
+		})
+		setArrowDirection(() => {
+			if (isTooltipOutOfView) {
+				return 'down'
+			}
+
+			return 'up'
+		})
 
 		const handleClickOutside = (event: MouseEvent) => {
 			if (

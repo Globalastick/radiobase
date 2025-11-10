@@ -25,14 +25,17 @@ export const StationPage = () => {
 	const { t } = useTranslation()
 
 	useEffect(() => {
-		stationuuid &&
-			getStationsById(stationuuid).then((stationsInfo) => {
-				if (stationsInfo.length) {
-					setStationInfo(stationsInfo[0])
-					updateStation(stationsInfo[0])
-				}
-				setIsLoadingUpdatedInfo(false)
-			})
+		if (!stationuuid) {
+			return
+		}
+
+		getStationsById(stationuuid).then((stationsInfo) => {
+			if (stationsInfo.length) {
+				setStationInfo(stationsInfo[0])
+				updateStation(stationsInfo[0])
+			}
+			setIsLoadingUpdatedInfo(false)
+		})
 	}, [])
 
 	if (!stationInfo && isLoadingUpdatedInfo) {

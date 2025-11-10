@@ -6,7 +6,7 @@ interface Props {
 	stations: IStation[]
 	name?: string
 	isSortable?: boolean
-	additionlChildren?: JSX.Element | JSX.Element[]
+	additionlChildren?: React.ReactNode | React.ReactNode[]
 }
 
 export const StationsGridContainer = ({ stations, name, isSortable, additionlChildren }: Props) => {
