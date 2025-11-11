@@ -6,6 +6,7 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
+	height: 100%;
 	padding: var(--station-card-padding);
 	background-color: var(--color-card-bg);
 	border-radius: var(--border-radius);
@@ -53,11 +54,6 @@
 			color: var(--color-text-error);
 			background-color: var(--color-bg-error-alt);
 		}
-	}
-
-	&.dragging {
-		cursor: grabbing;
-		transition-duration: 0s;
 	}
 
 	&__name {

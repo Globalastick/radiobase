@@ -2,6 +2,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { IStation } from 'src/types/station.types'
 import { StationCard } from './StationCard'
+import './StationCardSortable.scss'
 
 interface Props {
 	station: IStation
@@ -13,17 +14,18 @@ export const StationCardSortable = ({ station }: Props) => {
 	})
 
 	const style = {
-		transition,
 		transform: CSS.Transform.toString(transform),
+		transition,
+		zIndex: isDragging ? '100' : 'inherit',
 	}
 	return (
-		<StationCard
+		<div
+			className={`station-card-sortable ${isDragging ? 'dragging' : ''}`}
 			ref={setNodeRef}
-			station={station}
-			isDragging={isDragging}
 			style={style}
 			{...attributes}
-			{...listeners}
-		/>
+			{...listeners}>
+			<StationCard station={station} />
+		</div>
 	)
 }

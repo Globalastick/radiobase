@@ -1,0 +1,5 @@
+.station-card-sortable {
+	&.dragging > :first-child {
+		cursor: grabbing;
+	}
+}
